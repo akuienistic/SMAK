@@ -61,7 +61,7 @@ const Index = () => {
         </div>
 
         {/* Content */}
-        <div className="container-custom relative z-10 px-4 py-20 md:py-32">
+        <div className="container-custom lg:mx-0 relative z-10 px-10 py-20 md:py-32">
           <div className="max-w-3xl">
             <p className="text-accent font-semibold mb-4 text-lg animate-fade-in">
               Welcome to

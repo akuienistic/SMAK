@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Phone, MapPin } from "lucide-react";
+import { Menu, X, Phone, MapPin, Home, Info, BookOpen, GraduationCap, Heart } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Header = () => {
@@ -8,12 +8,12 @@ const Header = () => {
   const location = useLocation();
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/academics", label: "Academics" },
-    { href: "/admissions", label: "Admissions" },
-    { href: "/student-life", label: "Student Life" },
-    { href: "/contact", label: "Contact" },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/about", label: "About Us", icon: Info },
+    { href: "/academics", label: "Academics", icon: BookOpen },
+    { href: "/admissions", label: "Admissions", icon: GraduationCap },
+    { href: "/student-life", label: "Student Life", icon: Heart },
+    { href: "/contact", label: "Contact", icon: Phone },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -24,14 +24,19 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground">
         <div className="container-custom px-4 py-2 flex flex-wrap justify-between items-center text-sm">
           <div className="flex items-center gap-4">
-            <a href="tel:0924879393" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">0924879393</span>
-            </a>
-            <a href="tel:0988181818" className="flex items-center gap-1 hover:text-accent transition-colors">
-              <Phone className="w-4 h-4" />
-              <span className="hidden sm:inline">0988181818</span>
-            </a>
+            <div className="sm:hidden">
+              <span className="font-semibold">St. Mary's Academy</span>
+            </div>
+            <div className="hidden sm:flex items-center gap-4">
+              <a href="tel:0924879393" className="flex items-center gap-1 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4" />
+                <span className="hidden sm:inline">0924879393</span>
+              </a>
+              <a href="tel:0988181818" className="flex items-center gap-1 hover:text-accent transition-colors">
+                <Phone className="w-4 h-4" />
+                <span className="hidden sm:inline">0988181818</span>
+              </a>
+            </div>
           </div>
           <div className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
@@ -100,26 +105,28 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-border animate-fade-in">
-            <div className="flex flex-col gap-2 pt-4">
+            <div className="grid grid-cols-2 gap-2 pt-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`py-3 px-4 rounded-lg font-medium transition-colors ${
+                  className={`py-3 px-4 rounded-lg font-medium transition-colors flex items-center gap-2 ${
                     isActive(link.href)
                       ? "bg-primary text-primary-foreground"
                       : "hover:bg-muted"
                   }`}
                 >
+                  <link.icon className="w-4 h-4" />
                   {link.label}
                 </Link>
               ))}
               <Link
                 to="/admissions"
                 onClick={() => setIsMenuOpen(false)}
-                className="btn-cta text-center mt-2"
+                className="btn-cta text-center mt-2 col-span-2 flex items-center justify-center gap-2"
               >
+                <GraduationCap className="w-4 h-4" />
                 Apply Now
               </Link>
             </div>
