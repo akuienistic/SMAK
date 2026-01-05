@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Colors */
+    --background: 0 0% 100%;
+    --foreground: 210 29% 24%;
+    
+    /* School Green - Primary Brand */
+    --primary: 147 54% 22%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Light Sage Green - Secondary */
+    --secondary: 135 36% 45%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Gold Accent - CTAs */
+    --accent: 46 88% 50%;
+    --accent-foreground: 210 29% 24%;
+    
+    /* Cards & Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 210 29% 24%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 24%;
+    
+    /* Muted Backgrounds */
+    --muted: 210 17% 98%;
+    --muted-foreground: 210 13% 45%;
+    
+    /* Borders & Inputs */
+    --border: 210 14% 89%;
+    --input: 210 14% 89%;
+    --ring: 147 54% 22%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --radius: 0.5rem;
+    
+    /* Custom School Colors */
+    --school-green: 147 54% 22%;
+    --school-green-light: 135 36% 45%;
+    --school-gold: 46 88% 50%;
+    --school-dark: 210 29% 24%;
+    --school-gray: 210 17% 98%;
+    
+    /* Sidebar */
+    --sidebar-background: 147 54% 22%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 46 88% 50%;
+    --sidebar-primary-foreground: 210 29% 24%;
+    --sidebar-accent: 135 36% 45%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 147 54% 28%;
+    --sidebar-ring: 46 88% 50%;
+  }
+
+  .dark {
+    --background: 210 29% 10%;
+    --foreground: 0 0% 98%;
+    --primary: 147 54% 35%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 135 36% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 46 88% 55%;
+    --accent-foreground: 210 29% 15%;
+    --card: 210 29% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 29% 12%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 210 29% 18%;
+    --muted-foreground: 210 10% 70%;
+    --border: 210 29% 20%;
+    --input: 210 29% 20%;
+    --ring: 147 54% 45%;
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-6 md:py-24 lg:px-8;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(48 90% 60%) 100%);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300;
+    background: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(48 85% 55%) 100%);
+    color: hsl(var(--school-dark));
+    box-shadow: 0 4px 15px -3px hsl(var(--accent) / 0.4);
+  }
+
+  .btn-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -5px hsl(var(--accent) / 0.5);
+  }
+
+  .btn-primary-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 border-2;
+    border-color: hsl(var(--primary-foreground));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .btn-primary-outline:hover {
+    background: hsl(var(--primary-foreground));
+    color: hsl(var(--primary));
+  }
+
+  .feature-icon {
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.1) 0%, hsl(var(--secondary) / 0.1) 100%);
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground text-center max-w-2xl mx-auto mb-12;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
