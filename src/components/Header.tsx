@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X, Phone, MapPin, Home, Info, BookOpen, GraduationCap, Heart } from "lucide-react";
+import { Menu, X, Phone, MapPin, Home, Info, BookOpen, GraduationCap, Users } from "lucide-react";
 import logo from "@/assets/logo.jpg";
 
 const Header = () => {
@@ -12,7 +12,7 @@ const Header = () => {
     { href: "/about", label: "About Us", icon: Info },
     { href: "/academics", label: "Academics", icon: BookOpen },
     { href: "/admissions", label: "Admissions", icon: GraduationCap },
-    { href: "/student-life", label: "Student Life", icon: Heart },
+    { href: "/student-life", label: "Student Life", icon: Users },
     { href: "/contact", label: "Contact", icon: Phone },
   ];
 
@@ -105,7 +105,7 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-border animate-fade-in">
-            <div className="grid grid-cols-2 gap-2 pt-4">
+            <div className="flex flex-col gap-2 pt-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -124,9 +124,8 @@ const Header = () => {
               <Link
                 to="/admissions"
                 onClick={() => setIsMenuOpen(false)}
-                className="btn-cta text-center mt-2 col-span-2 flex items-center justify-center gap-2"
+                className="btn-cta text-center mt-2"
               >
-                <GraduationCap className="w-4 h-4" />
                 Apply Now
               </Link>
             </div>
