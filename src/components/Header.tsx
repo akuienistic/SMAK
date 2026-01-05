@@ -53,9 +53,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3">
             <img src={logo} alt="SMAK Logo" className="h-14 w-14 object-contain" />
             <div className="hidden lg:block">
-              <h1 className="font-heading font-bold text-primary text-lg leading-tight">
-                St. Mary's Academy
-              </h1>
+              <h1 className="font-heading font-bold text-primary text-lg leading-tight">St. Mary's Academy</h1>
               <p className="text-xs text-muted-foreground">Secondary School - Kwerjik</p>
             </div>
           </Link>
@@ -67,9 +65,7 @@ const Header = () => {
                 key={link.href}
                 to={link.href}
                 className={`font-medium transition-colors relative py-1 ${
-                  isActive(link.href)
-                    ? "text-primary"
-                    : "text-foreground hover:text-primary"
+                  isActive(link.href) ? "text-primary" : "text-foreground hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -81,24 +77,13 @@ const Header = () => {
           </div>
 
           {/* CTA Button */}
-          <Link
-            to="/admissions"
-            className="hidden md:inline-flex btn-cta text-sm py-2 px-6"
-          >
+          <Link to="/admissions" className="hidden md:inline-flex btn-cta text-sm py-2 px-6">
             Apply Now
           </Link>
 
           {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
-            ) : (
-              <Menu className="w-6 h-6 text-foreground" />
-            )}
+          <button className="lg:hidden p-2" onClick={() => setIsMenuOpen(!isMenuOpen)} aria-label="Toggle menu">
+            {isMenuOpen ? <X className="w-6 h-6 text-foreground" /> : <Menu className="w-6 h-6 text-foreground" />}
           </button>
         </div>
 
@@ -112,20 +97,14 @@ const Header = () => {
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className={`py-3 px-4 rounded-lg font-medium transition-colors flex items-center gap-2 ${
-                    isActive(link.href)
-                      ? "bg-primary text-primary-foreground"
-                      : "hover:bg-muted"
+                    isActive(link.href) ? "bg-primary text-primary-foreground" : "hover:bg-muted"
                   }`}
                 >
                   <link.icon className="w-4 h-4" />
                   {link.label}
                 </Link>
               ))}
-              <Link
-                to="/admissions"
-                onClick={() => setIsMenuOpen(false)}
-                className="btn-cta text-center mt-2"
-              >
+              <Link to="/admissions" onClick={() => setIsMenuOpen(false)} className="btn-cta text-center mt-2">
                 Apply Now
               </Link>
             </div>
